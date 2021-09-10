@@ -14,14 +14,17 @@ ${normalize()}
 
 html {
     font-size: 62.5%;
-    @media only screen and (min-width: 600px) {
+
+    @include respond(max-width: 900px){
+        font-size: 56.25%;
+    }
+
+    @include respond(max-width: 600px){
+        font-size: 50%;
+    } 
+
+    @include respond(min-width: 1800px){
         font-size: 75%;
-    }
-    @media only screen and (min-width: 900px) {
-        font-size: 87.5%;
-    }
-    @media only screen and (min-width: 1200px) {
-        font-size: 100%;
     }
     
 }

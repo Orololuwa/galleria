@@ -14,7 +14,7 @@ const colors = {
   }
 };
 
-const primaryFont = "Poppins, sans-serif";
+const primaryFont = "'Libre Baskerville', serif";
 
 const typeScale = {
   header1: "3.5rem",
