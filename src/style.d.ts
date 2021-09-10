@@ -10,9 +10,6 @@ declare module "styled-components" {
       black: {
         [index: number]: string;
       };
-      green: {
-        [index: number]: string;
-      };
     };
     primaryFont: string;
     typeScale: {

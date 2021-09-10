@@ -3,14 +3,12 @@ import { DefaultTheme } from "styled-components";
 const colors = {
   white: {
     100: "#FFFFFF",
-    200: "#FAFBFD"
+    200: "#F3F3F3",
+    300: "#E5E5E5"
   },
   black: {
-    100: "#2C2929",
-    200: "#2E2727"
-  },
-  green: {
-    100: "#48BF59"
+    100: "#000000",
+    200: "#7D7D7D"
   }
 };
 
