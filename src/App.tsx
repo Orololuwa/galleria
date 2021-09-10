@@ -1,8 +1,14 @@
-import React from "react";
-import "./App.css";
+import { ThemeProvider } from "styled-components";
+import { theme } from "theme";
+import GlobalStyles from "global";
 
 function App() {
-  return <div className="App">My first Typescript Project</div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <div className="App">My first Typescript Project</div>
+    </ThemeProvider>
+  );
 }
 
 export default App;
