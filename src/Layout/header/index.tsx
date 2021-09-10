@@ -1,11 +1,10 @@
 import React from "react";
 import StyledHeader from "./style";
-import Logo from "assets/shared/logo.svg";
 
 const Header = () => {
   return (
     <StyledHeader>
-      <img src={Logo} alt="galleria's logo" className="logo" />
+      <img src="/shared/logo.svg" alt="galleria's logo" className="logo" />
       <span>START SLIDESHOW</span>
     </StyledHeader>
   );
