@@ -23,6 +23,7 @@ const StyledHeader = styled.header`
 
   .logo {
     height: 3.5rem;
+    cursor: pointer;
 
     @media only screen and (max-width: 56.25em) {
       height: 2.5rem;
