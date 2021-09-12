@@ -37,7 +37,7 @@ body {
     line-height: 2.1rem;
     font-size: ${(props) => props.theme.typeScale.bodyText2};
     font-family: ${(props) => props.theme.primaryFont};
-    background-color: ${(props) => props.theme.colors.white[200]};
+    background-color: ${(props) => props.theme.colors.white[100]};
     color: ${(props) => props.theme.colors.black[100]};
     font-style: normal;
     font-weight: 400;

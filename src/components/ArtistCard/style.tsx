@@ -15,8 +15,8 @@ const StyledArtistCard = styled.div`
   .name {
     color: ${(props) => props.theme.colors.white[100]};
     position: absolute;
-    bottom: 2.5rem;
-    left: 2.5rem;
+    bottom: 2rem;
+    left: 2rem;
 
     &-art,
     &-artist {

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Main = styled.main`
+  padding-top: 3rem;
   .my-masonry-grid {
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */
