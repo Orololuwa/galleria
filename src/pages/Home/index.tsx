@@ -21,6 +21,7 @@ const HomePage: React.FC = () => {
       >
         {data.map((img, i) => (
           <ArtistCard
+            className="artistCard"
             thumbnail={img.images.thumbnail}
             artistName={img.artist.name}
             artName={img.name}

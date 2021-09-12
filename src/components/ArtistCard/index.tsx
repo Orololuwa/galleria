@@ -6,7 +6,10 @@ import { useHistory } from "react-router";
 const ArtistCard: React.FC<artistCard> = (props) => {
   const history = useHistory();
   return (
-    <StyledArtistCard onClick={() => history.push("/art_details")}>
+    <StyledArtistCard
+      className={props.className}
+      onClick={() => history.push("/art_details")}
+    >
       <img src={props.thumbnail} alt={props.artName} className="thumbnail" />
       <div className="name">
         <h3 className="name-art">{props.artName}</h3>

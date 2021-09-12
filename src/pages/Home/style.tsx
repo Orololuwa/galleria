@@ -11,10 +11,45 @@ const Main = styled.main`
     gap: 3rem;
     padding: 0 2.5rem;
     margin: 0 auto;
+    position: relative;
   }
   .my-masonry-grid_column {
     //padding-left: 30px; /* gutter size */
     background-clip: padding-box;
+
+    &:nth-child(3) > .artistCard:last-child {
+      position: absolute;
+      right: 2.5rem;
+      bottom: 0;
+      width: inherit;
+      padding-left: 3.5rem;
+
+      .name {
+        left: 3.5rem;
+      }
+
+      @media only screen and (max-width: 1100px) {
+        bottom: 7rem;
+      }
+
+      @media only screen and (max-width: 900px) {
+        bottom: 5rem;
+      }
+    }
+
+    @media only screen and (max-width: 700px) and (min-width: 500px) {
+      &:first-child > .artistCard:last-child {
+        position: absolute;
+        right: 2.5rem;
+        bottom: 0;
+        width: inherit;
+        padding-left: 3.5rem;
+
+        .name {
+          left: 3.5rem;
+        }
+      }
+    }
   }
 
   /* Style your items */
