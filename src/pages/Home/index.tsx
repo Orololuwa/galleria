@@ -2,6 +2,7 @@ import Main from "./style";
 import React from "react";
 import { Thumbnail } from "models/Thumbnails";
 import Masonry from "react-masonry-css";
+import ArtistCard from "components/ArtistCard";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -21,10 +22,14 @@ const HomePage: React.FC<{ data: Thumbnail[] }> = (props) => {
         columnClassName="my-masonry-grid_column"
       >
         {props.data.map((img, i) => (
-          <img src={img.images.thumbnail} alt={img.name} key={i} />
+          <ArtistCard
+            thumbnail={img.images.thumbnail}
+            artistName={img.artist.name}
+            artName={img.name}
+            key={i}
+          />
         ))}
       </Masonry>
-      <section className="gallery"></section>
     </Main>
   );
 };

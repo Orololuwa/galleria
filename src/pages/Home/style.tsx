@@ -7,8 +7,8 @@ const Main = styled.main`
     display: flex;
     margin-left: -30px; /* gutter size offset */
     width: auto;
-    gap: 2.5rem;
     padding: 0 2.5rem;
+    margin: 0 auto;
   }
   .my-masonry-grid_column {
     padding-left: 30px; /* gutter size */
