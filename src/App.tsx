@@ -3,14 +3,13 @@ import { theme } from "theme";
 import GlobalStyles from "global";
 import Layout from "Layout";
 import HomePage from "pages/Home";
-import data from "./data.json";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Layout>
-        <HomePage data={data} />
+        <HomePage />
       </Layout>
     </ThemeProvider>
   );
