@@ -15,15 +15,15 @@ ${normalize()}
 html {
     font-size: 62.5%;
 
-    @include respond(max-width: 900px){
+    @include respond(max-width: 56.25em){
         font-size: 56.25%;
     }
 
-    @include respond(max-width: 600px){
+    @include respond(max-width: 37.5em){
         font-size: 50%;
     } 
 
-    @include respond(min-width: 1800px){
+    @include respond(min-width: 112.5em){
         font-size: 75%;
     }
     

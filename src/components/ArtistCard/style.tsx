@@ -15,12 +15,26 @@ const StyledArtistCard = styled.div`
   .name {
     color: ${(props) => props.theme.colors.white[100]};
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 0;
+    left: 0;
+    padding: 2.5rem;
+    line-height: 2.5rem;
 
     &-art,
     &-artist {
       margin: 0.5rem 0;
+    }
+
+    &-art {
+      @media only screen and (max-width: 56.25em) {
+        font-size: ${(props) => props.theme.typeScale.header4};
+      }
+    }
+
+    &-artist {
+      @media only screen and (max-width: 56.25em) {
+        font-size: ${(props) => props.theme.typeScale.bodyText4};
+      }
     }
   }
 `;
