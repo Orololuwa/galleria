@@ -31,8 +31,9 @@ const ArtDetailsProvider = styled.main`
     &-names {
       background-color: ${(props) => props.theme.colors.white[100]};
       position: absolute;
+      width: 40rem;
       top: 0;
-      left: calc(100% - 5rem);
+      right: -100%;
       padding: 0 0 5rem 5rem;
 
       h1 {
