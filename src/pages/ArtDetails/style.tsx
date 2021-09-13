@@ -4,6 +4,9 @@ const ArtDetailsProvider = styled.main`
   padding: 7.5rem 2.5rem 0 2.5rem;
 
   .body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     &-image {
       width: 30%;
       position: relative;
@@ -41,6 +44,45 @@ const ArtDetailsProvider = styled.main`
       p {
         color: ${(props) => props.theme.colors.black[200]};
         margin-top: 1rem;
+      }
+    }
+
+    .artist {
+      width: 12.5rem;
+      position: absolute;
+      bottom: 0;
+      right: -15rem;
+    }
+
+    &-desc {
+      width: 30%;
+      padding-right: 1.5rem;
+      margin-right: 5rem;
+      color: ${(props) => props.theme.colors.black[200]};
+      letter-spacing: 1px;
+      line-height: 2.5rem;
+      font-size: ${(props) => props.theme.typeScale.bodyText3};
+      position: relative;
+
+      p {
+        margin-top: 7.5rem;
+      }
+
+      a {
+        font-size: ${(props) => props.theme.typeScale.bodyText4};
+        text-transform: uppercase;
+        color: ${(props) => props.theme.colors.black[200]};
+        margin-top: 5rem;
+        display: block;
+      }
+
+      .year {
+        font-size: 20rem;
+        position: absolute;
+        top: 10rem;
+        right: -10rem;
+        color: ${(props) => props.theme.colors.white[200]};
+        mix-blend-mode: darken;
       }
     }
   }
