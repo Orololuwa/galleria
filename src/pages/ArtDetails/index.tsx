@@ -1,8 +1,15 @@
 import React from "react";
 import ArtDetailsProvider from "./style";
 import data from "data.json";
+import { useParams } from "react-router";
+
+type ArtDetailsParams = {
+  idx: string;
+};
 
 const ArtDetails: React.FC = () => {
+  const { idx } = useParams<ArtDetailsParams>();
+  const id = +idx;
   return (
     <ArtDetailsProvider>
       <div className="body">
@@ -10,26 +17,26 @@ const ArtDetails: React.FC = () => {
           <picture>
             <source
               media="(max-width:600px)"
-              srcSet={data[0].images.hero.small}
+              srcSet={data[id].images.hero.small}
             />
-            <img src={data[0].images.hero.large} alt="hero" />
+            <img src={data[id].images.hero.large} alt="hero" />
           </picture>
           <div className="body-names">
-            <h1>{data[0].name}</h1>
-            <p>{data[0].artist.name}</p>
+            <h1>{data[id].name}</h1>
+            <p>{data[id].artist.name}</p>
           </div>
           <img
-            src={data[0].artist.image}
-            alt={data[0].artist.name}
+            src={data[id].artist.image}
+            alt={data[id].artist.name}
             className="artist"
           />
         </div>
         <div className="body-desc">
-          <p>{data[0].description}</p>
-          <a target="_blank" href={data[0].source} rel="noreferrer">
+          <p>{data[id].description}</p>
+          <a target="_blank" href={data[id].source} rel="noreferrer">
             go to source
           </a>
-          <span className="year">{data[0].year}</span>
+          <span className="year">{data[id].year}</span>
         </div>
       </div>
       <div className="footer">...</div>

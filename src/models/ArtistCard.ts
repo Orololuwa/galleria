@@ -3,4 +3,5 @@ export interface artistCard {
   artistName: string;
   artName: string;
   className: string;
+  onClick: () => void;
 }

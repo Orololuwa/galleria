@@ -3,6 +3,7 @@ import React from "react";
 import data from "data.json";
 import Masonry from "react-masonry-css";
 import ArtistCard from "components/ArtistCard";
+import { useHistory } from "react-router";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -12,6 +13,7 @@ const breakpointColumnsObj = {
 };
 
 const HomePage: React.FC = () => {
+  const history = useHistory();
   return (
     <Main>
       <Masonry
@@ -25,6 +27,7 @@ const HomePage: React.FC = () => {
             thumbnail={img.images.thumbnail}
             artistName={img.artist.name}
             artName={img.name}
+            onClick={() => history.push(`/art_details-${i}`)}
             key={i}
           />
         ))}
