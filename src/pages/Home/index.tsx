@@ -1,9 +1,9 @@
 import Main from "./style";
-import React from "react";
-import data from "data.json";
+import React, { useContext } from "react";
 import Masonry from "react-masonry-css";
 import ArtistCard from "components/ArtistCard";
 import { useHistory } from "react-router";
+import { StoreContext } from "context/store-context";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -14,6 +14,7 @@ const breakpointColumnsObj = {
 
 const HomePage: React.FC = () => {
   const history = useHistory();
+  const ctx = useContext(StoreContext);
   return (
     <Main>
       <Masonry
@@ -21,7 +22,7 @@ const HomePage: React.FC = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {data.map((img, i) => (
+        {ctx.data.map((img, i) => (
           <ArtistCard
             className="artistCard"
             thumbnail={img.images.thumbnail}
