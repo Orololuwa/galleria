@@ -8,6 +8,7 @@ const ArtDetailsProvider = styled.main`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 15rem;
 
     &-image {
       width: 30%;
@@ -198,12 +199,41 @@ const ArtDetailsProvider = styled.main`
     display: flex;
     justify-content: space-between;
     padding: 2.5rem 5rem;
+    background-color: ${(props) => props.theme.colors.white[100]};
     border-top: 1px solid ${(props) => props.theme.colors.white[300]};
 
     &-names {
       p {
         color: ${(props) => props.theme.colors.black[200]};
       }
+
+      @media only screen and (max-width: 56.25em) {
+        h3 {
+          font-size: ${(props) => props.theme.typeScale.header4};
+        }
+
+        p {
+          font-size: ${(props) => props.theme.typeScale.bodyText4};
+        }
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        h3 {
+          font-size: ${(props) => props.theme.typeScale.header5};
+        }
+
+        p {
+          font-size: ${(props) => props.theme.typeScale.bodyText5};
+        }
+      }
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      padding: 2.5rem;
+    }
+
+    @media only screen and (max-width: 37.5em) {
+      padding: 1rem 2.5rem;
     }
   }
 `;

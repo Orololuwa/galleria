@@ -28,10 +28,6 @@ const StyledHeader = styled.header`
     @media only screen and (max-width: 56.25em) {
       height: 2.5rem;
     }
-
-    @media only screen and (max-width: 37.5em) {
-      height: 1.5rem;
-    }
   }
 
   @media only screen and (max-width: 37.5em) {
