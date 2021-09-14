@@ -3,7 +3,7 @@ import ArtDetailsProvider from "./style";
 import { useHistory, useParams } from "react-router";
 import { StoreContext } from "context/store-context";
 import { useContext } from "react";
-import IonIcon from "@reacticons/ionicons";
+import { NavIcon } from "./style";
 
 type ArtDetailsParams = {
   idx: string;
@@ -21,20 +21,22 @@ const ArtDetails: React.FC = () => {
 
   // console.log(len);
 
-  const navPageHandler = (direction: "next" | "prev") => {
-    const lastPage: number = ctx.data.length;
-    const firstPage: number = 1;
-    const currentPage: number = +idx;
+  const lastPage: number = ctx.data.length;
+  const firstPage: number = 1;
+  const currentPage: number = +idx;
 
+  const navPageHandler = (direction: "next" | "prev") => {
     if (direction === "next") {
       if (currentPage === lastPage) {
-        history.push(`art-${firstPage}`);
+        //history.push(`art-${firstPage}`);
+        return;
       } else {
         history.push(`art-${currentPage + 1}`);
       }
     } else if (direction === "prev") {
       if (currentPage === firstPage) {
-        history.push(`art-${lastPage}`);
+        //history.push(`art-${lastPage}`);
+        return;
       } else {
         history.push(`art-${currentPage - 1}`);
       }
@@ -78,15 +80,15 @@ const ArtDetails: React.FC = () => {
           <p>{ctx.data[id].artist.name}</p>
         </div>
         <div className="footer-controls">
-          <IonIcon
+          <NavIcon
             name="play-skip-back-outline"
-            className="footer-controls--icon"
             onClick={() => navPageHandler("prev")}
+            disabled={currentPage === firstPage}
           />
-          <IonIcon
+          <NavIcon
             name="play-skip-forward-outline"
-            className="footer-controls--icon"
             onClick={() => navPageHandler("next")}
+            disabled={currentPage === lastPage}
           />
         </div>
       </div>

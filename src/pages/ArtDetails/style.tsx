@@ -1,10 +1,31 @@
 import styled from "styled-components";
+import IonIcon from "@reacticons/ionicons";
 
-interface WidthProps {
-  readonly width: number;
+interface CustomProps {
+  readonly width?: number;
+  readonly disabled?: boolean;
 }
 
-const ArtDetailsProvider = styled.main<WidthProps>`
+export const NavIcon = styled(IonIcon)<CustomProps>`
+  width: 3rem !important;
+  height: 3rem !important;
+  color: ${(props) =>
+    props.disabled
+      ? props.theme.colors.white[300]
+      : props.theme.colors.black[100]};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  transition: all 0.5s;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.white[300]};
+  }
+
+  &:active {
+    color: ${(props) => props.theme.colors.black[100]};
+  }
+`;
+
+const ArtDetailsProvider = styled.main<CustomProps>`
   padding: 7.5rem 2.5rem 0 2.5rem;
   position: relative;
 
@@ -240,7 +261,10 @@ const ArtDetailsProvider = styled.main<WidthProps>`
       &--icon {
         width: 3rem !important;
         height: 3rem !important;
-        color: ${(props) => props.theme.colors.black[100]};
+        color: ${(props) =>
+          props.disabled
+            ? props.theme.colors.white[300]
+            : props.theme.colors.black[100]};
         cursor: pointer;
         transition: all 0.5s;
 
