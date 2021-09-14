@@ -7,6 +7,7 @@ const ArtDetailsProvider = styled.main`
     width: 100%;
     display: flex;
     justify-content: space-between;
+
     &-image {
       width: 30%;
       position: relative;
@@ -16,14 +17,28 @@ const ArtDetailsProvider = styled.main`
         display: block;
         position: absolute;
         top: 0;
-        left: calc(100% - 5rem);
+        left: calc(100% - 7.5rem);
         z-index: 500;
         width: 5rem;
         height: 1px;
         background-color: ${(props) => props.theme.colors.white[300]};
+
+        @media only screen and (max-width: 56.25em) {
+          left: calc(100% - 15rem);
+          width: 15rem;
+        }
       }
 
       img {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        width: 75%;
+        align-self: flex-start;
+      }
+
+      @media only screen and (max-width: 37.5em) {
         width: 100%;
       }
     }
@@ -33,7 +48,7 @@ const ArtDetailsProvider = styled.main`
       position: absolute;
       width: 40rem;
       top: 0;
-      right: -100%;
+      left: calc(100% - 7.5rem);
       padding: 0 0 5rem 5rem;
 
       h1 {
@@ -46,13 +61,54 @@ const ArtDetailsProvider = styled.main`
         color: ${(props) => props.theme.colors.black[200]};
         margin-top: 1rem;
       }
+
+      @media only screen and (max-width: 75em) {
+        width: 30rem;
+
+        h1 {
+          font-size: 4.5rem;
+          line-height: 5rem;
+        }
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        left: calc(100% - 15rem);
+
+        // h1 {
+        //   font-size: 3.5rem;
+        // }
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        left: 1px;
+        top: 100%;
+        transform: translateY(-50%);
+      }
     }
 
     .artist {
       width: 12.5rem;
       position: absolute;
-      bottom: 0;
-      right: -15rem;
+      top: calc(100% - 10rem);
+      left: calc(100% + 2.5rem);
+
+      @media only screen and (max-width: 75em) {
+        width: 10rem;
+        top: calc(50%);
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        width: 10rem;
+        top: calc(50%);
+        transform: translateY(calc(-50% + 7.5rem));
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        width: 7.5rem;
+        top: calc(100%);
+        left: 0;
+        transform: translateY(60%);
+      }
     }
 
     &-desc {
@@ -67,6 +123,10 @@ const ArtDetailsProvider = styled.main`
 
       p {
         margin-top: 7.5rem;
+
+        @media only screen and (max-width: 37.5em) {
+          margin-top: 7.5rem;
+        }
       }
 
       a {
@@ -84,7 +144,48 @@ const ArtDetailsProvider = styled.main`
         right: -10rem;
         color: ${(props) => props.theme.colors.white[200]};
         mix-blend-mode: darken;
+
+        @media only screen and (max-width: 75em) {
+          top: 5rem;
+          right: -7.5rem;
+          font-size: 15rem;
+        }
+
+        @media only screen and (max-width: 56.25em) {
+          top: 3.5rem;
+          left: -12.5rem;
+        }
+
+        @media only screen and (max-width: 37.5em) {
+          top: 7.5rem;
+          left: 50%;
+          font-size: 10rem;
+        }
+
+        @media only screen and (max-width: 28.125em) {
+          transform: translateX(calc(-50% + 2.5rem));
+        }
       }
+
+      @media only screen and (max-width: 75em) {
+        padding-right: 0;
+        width: 50%;
+        margin-right: 0;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        width: 75%;
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      flex-direction: column;
+      align-items: center;
+      gap: 7.5rem;
     }
   }
 `;
