@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import ArtDetailsProvider from "./style";
 import { useHistory, useParams } from "react-router";
 import { StoreContext } from "context/store-context";
@@ -25,25 +25,46 @@ const ArtDetails: React.FC = () => {
   const firstPage: number = 1;
   const currentPage: number = +idx;
 
-  const navPageHandler = (direction: "next" | "prev") => {
-    if (direction === "next") {
-      if (currentPage === lastPage) {
-        //history.push(`art-${firstPage}`);
-        return;
-      } else {
-        history.push(`art-${currentPage + 1}`);
+  const navPageHandler = useCallback(
+    (direction: "next" | "prev") => {
+      if (direction === "next") {
+        if (currentPage === lastPage) {
+          //history.push(`art-${firstPage}`);
+          return;
+        } else {
+          history.push(`art-${currentPage + 1}`);
+        }
       }
-    } else if (direction === "prev") {
-      if (currentPage === firstPage) {
-        //history.push(`art-${lastPage}`);
-        return;
-      } else {
-        history.push(`art-${currentPage - 1}`);
+
+      if (direction === "prev") {
+        if (currentPage === firstPage) {
+          //history.push(`art-${lastPage}`);
+          return;
+        } else {
+          history.push(`art-${currentPage - 1}`);
+        }
       }
-    } else {
-      return;
-    }
-  };
+    },
+    [currentPage, history, firstPage, lastPage]
+  );
+
+  const keyPressHandler = useCallback(
+    (event: any) => {
+      if (event.key === "ArrowRight") {
+        navPageHandler("next");
+      } else if (event.key === "ArrowLeft") {
+        navPageHandler("prev");
+      } else {
+        return;
+      }
+    },
+    [navPageHandler]
+  );
+
+  useEffect(() => {
+    window.onkeydown = keyPressHandler;
+    //window.addEventListener("keypress", keyPressHandler);
+  }, [keyPressHandler]);
 
   return (
     <ArtDetailsProvider width={len}>
