@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ArtDetailsProvider = styled.main`
   padding: 7.5rem 2.5rem 0 2.5rem;
+  position: relative;
 
   .body {
     width: 100%;
@@ -186,6 +187,23 @@ const ArtDetailsProvider = styled.main`
       flex-direction: column;
       align-items: center;
       gap: 7.5rem;
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 5rem;
+    border-top: 1px solid ${(props) => props.theme.colors.white[300]};
+
+    &-names {
+      p {
+        color: ${(props) => props.theme.colors.black[200]};
+      }
     }
   }
 `;

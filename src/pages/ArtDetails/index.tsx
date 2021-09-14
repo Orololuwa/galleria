@@ -39,7 +39,13 @@ const ArtDetails: React.FC = () => {
           <span className="year">{data[id].year}</span>
         </div>
       </div>
-      <div className="footer">...</div>
+      <div className="footer">
+        <div className="footer-names">
+          <h3>{data[id].name}</h3>
+          <p>{data[id].artist.name}</p>
+        </div>
+        <div className="footer-controls">controls</div>
+      </div>
     </ArtDetailsProvider>
   );
 };
