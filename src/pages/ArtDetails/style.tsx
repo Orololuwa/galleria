@@ -232,6 +232,23 @@ const ArtDetailsProvider = styled.main<WidthProps>`
       }
     }
 
+    &-controls {
+      display: flex;
+      align-items: center;
+
+      &--icon {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        color: ${(props) => props.theme.colors.black[100]};
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          color: ${(props) => props.theme.colors.white[300]};
+        }
+      }
+    }
+
     @media only screen and (max-width: 56.25em) {
       padding: 2.5rem;
     }

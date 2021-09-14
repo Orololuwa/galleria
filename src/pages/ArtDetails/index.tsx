@@ -3,6 +3,7 @@ import ArtDetailsProvider from "./style";
 import { useParams } from "react-router";
 import { StoreContext } from "context/store-context";
 import { useContext } from "react";
+import IonIcon from "@reacticons/ionicons";
 
 type ArtDetailsParams = {
   idx: string;
@@ -53,7 +54,16 @@ const ArtDetails: React.FC = () => {
           <h3>{ctx.data[id].name}</h3>
           <p>{ctx.data[id].artist.name}</p>
         </div>
-        <div className="footer-controls">controls</div>
+        <div className="footer-controls">
+          <IonIcon
+            name="play-skip-back-outline"
+            className="footer-controls--icon"
+          />
+          <IonIcon
+            name="play-skip-forward-outline"
+            className="footer-controls--icon"
+          />
+        </div>
       </div>
     </ArtDetailsProvider>
   );
