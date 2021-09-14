@@ -235,10 +235,11 @@ const ArtDetailsProvider = styled.main<WidthProps>`
     &-controls {
       display: flex;
       align-items: center;
+      gap: 2.5rem;
 
       &--icon {
-        width: 2.5rem !important;
-        height: 2.5rem !important;
+        width: 3rem !important;
+        height: 3rem !important;
         color: ${(props) => props.theme.colors.black[100]};
         cursor: pointer;
         transition: all 0.5s;
