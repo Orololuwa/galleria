@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
             thumbnail={img.images.thumbnail}
             artistName={img.artist.name}
             artName={img.name}
-            onClick={() => history.push(`/art_details-${i}`)}
+            onClick={() => history.push(`/art-${i}`)}
             key={i}
           />
         ))}
