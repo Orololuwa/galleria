@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const ArtDetailsProvider = styled.main`
+interface WidthProps {
+  readonly width: number;
+}
+
+const ArtDetailsProvider = styled.main<WidthProps>`
   padding: 7.5rem 2.5rem 0 2.5rem;
   position: relative;
 
@@ -234,6 +238,17 @@ const ArtDetailsProvider = styled.main`
 
     @media only screen and (max-width: 37.5em) {
       padding: 1rem 2.5rem;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      background-color: ${(props) => props.theme.colors.black[100]};
+      width: ${(props) => props.width}%;
     }
   }
 `;

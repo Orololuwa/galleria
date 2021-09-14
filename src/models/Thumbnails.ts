@@ -14,4 +14,5 @@ export interface Thumbnail {
     };
     gallery: string;
   };
+  source: string;
 }
