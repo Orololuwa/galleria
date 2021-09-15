@@ -79,14 +79,15 @@ const ArtDetails: React.FC = () => {
   //view gallery functions
   const [showGallery, setShowGallery] = useState(false);
 
-  const showGalleryHandler = () => setShowGallery((prev) => !prev);
+  const showGalleryHandler = () => setShowGallery(true);
+  const hideGalleryHandler = () => setShowGallery(false);
   return (
     <>
       {showGallery && (
         <Gallery
           image={ctx.data[id].images.gallery}
           title={ctx.data[id].name}
-          onConfirm={showGalleryHandler}
+          onConfirm={hideGalleryHandler}
         />
       )}
       <ArtDetailsProvider width={len}>

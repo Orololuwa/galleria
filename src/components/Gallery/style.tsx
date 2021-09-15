@@ -9,7 +9,7 @@ const GalleryProvider = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  width: 80%;
+  width: suto;
 
   p {
     text-align: right;
@@ -22,7 +22,17 @@ const GalleryProvider = styled.div`
   }
 
   img {
-    object-fit: scale-down;
+    height: calc(100vh - 20rem);
+    object-fit: contain;
+    width: auto;
+
+    @media only screen and (max-width: 75em) {
+      height: calc(100vh - 30rem);
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      height: calc(100vh - 40rem);
+    }
   }
 `;
 
