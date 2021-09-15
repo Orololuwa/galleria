@@ -35,6 +35,7 @@ const ArtDetails: React.FC<artDetailsProps> = (props) => {
       if (direction === "next") {
         if (currentPage === lastPage) {
           //history.push(`art-${firstPage}`);
+          ctx.stopSlideShow();
           return;
         } else {
           history.push(`art-${currentPage + 1}`);
