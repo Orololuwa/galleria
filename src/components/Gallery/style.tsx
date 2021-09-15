@@ -9,6 +9,7 @@ const GalleryProvider = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  width: 80%;
 
   p {
     text-align: right;
@@ -18,6 +19,10 @@ const GalleryProvider = styled.div`
     align-self: flex-end;
     letter-spacing: 2.5px;
     cursor: pointer;
+  }
+
+  img {
+    object-fit: scale-down;
   }
 `;
 
