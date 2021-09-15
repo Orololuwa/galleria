@@ -1,10 +1,11 @@
-import { Suspense } from "react";
+import { Suspense, useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "theme";
 import GlobalStyles from "global";
 import Layout from "Layout";
 import { Switch, Route } from "react-router-dom";
 import routes from "routes";
+import { StoreContext } from "context/store-context";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -13,6 +14,7 @@ const loading = (
 );
 
 function App() {
+  const ctx = useContext(StoreContext);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -24,7 +26,7 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 key={idx}
-                component={route.component}
+                render={() => <route.component slideShow={ctx.slideShow} />}
               />
             ))}
           </Switch>

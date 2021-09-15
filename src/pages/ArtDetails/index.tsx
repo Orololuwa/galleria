@@ -10,7 +10,11 @@ type ArtDetailsParams = {
   idx: string;
 };
 
-const ArtDetails: React.FC = () => {
+interface artDetailsProps {
+  slideShow?: boolean;
+}
+
+const ArtDetails: React.FC<artDetailsProps> = (props) => {
   const history = useHistory();
   const ctx = useContext(StoreContext);
   const { idx } = useParams<ArtDetailsParams>();
@@ -68,13 +72,16 @@ const ArtDetails: React.FC = () => {
   }, [keyPressHandler]);
 
   //This is my slideshow section.
-  // useEffect(() => {
-  //   const loop = setInterval(() => {
-  //     navPageHandler("next");
-  //   }, 2000);
+  useEffect(() => {
+    if (!props.slideShow) {
+      return;
+    }
+    const loop = setInterval(() => {
+      navPageHandler("next");
+    }, 5000);
 
-  //   return () => clearInterval(loop);
-  // }, [navPageHandler]);
+    return () => clearInterval(loop);
+  }, [navPageHandler, props.slideShow]);
 
   //view gallery functions
   const [showGallery, setShowGallery] = useState(false);

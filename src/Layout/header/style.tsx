@@ -30,6 +30,15 @@ const StyledHeader = styled.header`
     }
   }
 
+  span {
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.white[300]};
+    }
+  }
+
   @media only screen and (max-width: 37.5em) {
     font-size: ${(props) => props.theme.typeScale.bodyText5};
     letter-spacing: 2.5px;
