@@ -66,6 +66,15 @@ const ArtDetails: React.FC = () => {
     //window.addEventListener("keypress", keyPressHandler);
   }, [keyPressHandler]);
 
+  //This is my slideshow section.
+  // useEffect(() => {
+  //   const loop = setInterval(() => {
+  //     navPageHandler("next");
+  //   }, 2000);
+
+  //   return () => clearInterval(loop);
+  // }, [navPageHandler]);
+
   return (
     <ArtDetailsProvider width={len}>
       <div className="body">
