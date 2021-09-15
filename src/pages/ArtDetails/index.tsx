@@ -79,13 +79,14 @@ const ArtDetails: React.FC = () => {
   //view gallery functions
   const [showGallery, setShowGallery] = useState(false);
 
+  const showGalleryHandler = () => setShowGallery((prev) => !prev);
   return (
     <>
       {showGallery && (
         <Gallery
           image={ctx.data[id].images.gallery}
           title={ctx.data[id].name}
-          onConfirm={() => setShowGallery(false)}
+          onConfirm={showGalleryHandler}
         />
       )}
       <ArtDetailsProvider width={len}>
@@ -107,7 +108,7 @@ const ArtDetails: React.FC = () => {
               alt={ctx.data[id].artist.name}
               className="artist"
             />
-            <span className="view_image" onClick={() => setShowGallery(true)}>
+            <span className="view_image" onClick={showGalleryHandler}>
               <img
                 src="/shared/icon-view-image.svg"
                 alt="icon"

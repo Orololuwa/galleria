@@ -95,6 +95,19 @@ const ArtDetailsProvider = styled.main<CustomProps>`
         &:hover {
           background-color: ${(props) => props.theme.colors.white[100]}44;
         }
+
+        @media only screen and (max-width: 75em) {
+          bottom: 50%;
+        }
+
+        @media only screen and (max-width: 56.25em) {
+          bottom: 3.5rem;
+        }
+
+        @media only screen and (max-width: 37.5em) {
+          top: 3.5rem;
+          bottom: unset;
+        }
       }
     }
 
@@ -129,9 +142,9 @@ const ArtDetailsProvider = styled.main<CustomProps>`
       @media only screen and (max-width: 56.25em) {
         left: calc(100% - 15rem);
 
-        // h1 {
-        //   font-size: 3.5rem;
-        // }
+        h1 {
+          font-size: 3.5rem;
+        }
       }
 
       @media only screen and (max-width: 37.5em) {
