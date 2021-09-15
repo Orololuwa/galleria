@@ -95,6 +95,14 @@ const ArtDetails: React.FC = () => {
             alt={ctx.data[id].artist.name}
             className="artist"
           />
+          <span className="view_image">
+            <img
+              src="/shared/icon-view-image.svg"
+              alt="icon"
+              className="view_image-icon"
+            />
+            <p>view image</p>
+          </span>
         </div>
         <div className="body-desc">
           <p>{ctx.data[id].description}</p>

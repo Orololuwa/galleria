@@ -68,6 +68,34 @@ const ArtDetailsProvider = styled.main<CustomProps>`
       @media only screen and (max-width: 37.5em) {
         width: 100%;
       }
+
+      .view_image {
+        position: absolute;
+        bottom: 3.5rem;
+        left: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: ${(props) => props.theme.colors.black[100]}cc;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &-icon {
+          width: 1.5rem;
+        }
+
+        p {
+          color: ${(props) => props.theme.colors.white[100]};
+          text-transform: uppercase;
+          font-size: ${(props) => props.theme.typeScale.bodyText4};
+          letter-spacing: 5px;
+        }
+
+        &:hover {
+          background-color: ${(props) => props.theme.colors.white[100]}44;
+        }
+      }
     }
 
     &-names {
