@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ArtDetailsProvider from "./style";
 import { useHistory, useParams } from "react-router";
 import { StoreContext } from "context/store-context";
 import { useContext } from "react";
 import { NavIcon } from "./style";
+import Gallery from "components/Gallery";
 
 type ArtDetailsParams = {
   idx: string;
@@ -75,62 +76,74 @@ const ArtDetails: React.FC = () => {
   //   return () => clearInterval(loop);
   // }, [navPageHandler]);
 
+  //view gallery functions
+  const [showGallery, setShowGallery] = useState(false);
+
   return (
-    <ArtDetailsProvider width={len}>
-      <div className="body">
-        <div className="body-image">
-          <picture>
-            <source
-              media="(max-width:600px)"
-              srcSet={ctx.data[id].images.hero.small}
+    <>
+      {showGallery && (
+        <Gallery
+          image={ctx.data[id].images.gallery}
+          title={ctx.data[id].name}
+          onConfirm={() => setShowGallery(false)}
+        />
+      )}
+      <ArtDetailsProvider width={len}>
+        <div className="body">
+          <div className="body-image">
+            <picture>
+              <source
+                media="(max-width:600px)"
+                srcSet={ctx.data[id].images.hero.small}
+              />
+              <img src={ctx.data[id].images.hero.large} alt="hero" />
+            </picture>
+            <div className="body-names">
+              <h1>{ctx.data[id].name}</h1>
+              <p>{ctx.data[id].artist.name}</p>
+            </div>
+            <img
+              src={ctx.data[id].artist.image}
+              alt={ctx.data[id].artist.name}
+              className="artist"
             />
-            <img src={ctx.data[id].images.hero.large} alt="hero" />
-          </picture>
-          <div className="body-names">
-            <h1>{ctx.data[id].name}</h1>
+            <span className="view_image" onClick={() => setShowGallery(true)}>
+              <img
+                src="/shared/icon-view-image.svg"
+                alt="icon"
+                className="view_image-icon"
+              />
+              <p>view image</p>
+            </span>
+          </div>
+          <div className="body-desc">
+            <p>{ctx.data[id].description}</p>
+            <a target="_blank" href={ctx.data[id].source} rel="noreferrer">
+              go to source
+            </a>
+            <span className="year">{ctx.data[id].year}</span>
+          </div>
+        </div>
+        <div className="footer">
+          <div className="footer-names">
+            <h3>{ctx.data[id].name}</h3>
             <p>{ctx.data[id].artist.name}</p>
           </div>
-          <img
-            src={ctx.data[id].artist.image}
-            alt={ctx.data[id].artist.name}
-            className="artist"
-          />
-          <span className="view_image">
-            <img
-              src="/shared/icon-view-image.svg"
-              alt="icon"
-              className="view_image-icon"
+          <div className="footer-controls">
+            <NavIcon
+              name="play-skip-back-outline"
+              onClick={() => navPageHandler("prev")}
+              disabled={currentPage === firstPage}
             />
-            <p>view image</p>
-          </span>
+            <NavIcon
+              name="play-skip-forward-outline"
+              onClick={() => navPageHandler("next")}
+              disabled={currentPage === lastPage}
+            />
+          </div>
         </div>
-        <div className="body-desc">
-          <p>{ctx.data[id].description}</p>
-          <a target="_blank" href={ctx.data[id].source} rel="noreferrer">
-            go to source
-          </a>
-          <span className="year">{ctx.data[id].year}</span>
-        </div>
-      </div>
-      <div className="footer">
-        <div className="footer-names">
-          <h3>{ctx.data[id].name}</h3>
-          <p>{ctx.data[id].artist.name}</p>
-        </div>
-        <div className="footer-controls">
-          <NavIcon
-            name="play-skip-back-outline"
-            onClick={() => navPageHandler("prev")}
-            disabled={currentPage === firstPage}
-          />
-          <NavIcon
-            name="play-skip-forward-outline"
-            onClick={() => navPageHandler("next")}
-            disabled={currentPage === lastPage}
-          />
-        </div>
-      </div>
-    </ArtDetailsProvider>
+      </ArtDetailsProvider>
+    </>
   );
 };
 
