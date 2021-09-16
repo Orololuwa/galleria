@@ -4,7 +4,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem;
+  padding: 1.5rem 2.5rem;
   position: relative;
   color: ${(props) => props.theme.colors.black[200]};
   font-size: ${(props) => props.theme.typeScale.bodyText3};
