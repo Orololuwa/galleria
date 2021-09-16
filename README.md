@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/galleria-i4rxdnpdQ)
-- Live Site URL: [Add live site URL here](https://6142f6bc910134e6da543752--vibrant-bhabha-af69c2.netlify.app/)
+- Solution URL: [Orololuwa/galleria](https://www.frontendmentor.io/solutions/galleria-i4rxdnpdQ)
+- Live Site URL: [Orololuwa/galleria](https://6142f6bc910134e6da543752--vibrant-bhabha-af69c2.netlify.app/)
 
 ### Built with
 
