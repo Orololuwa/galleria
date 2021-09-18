@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { NavIcon } from "./style";
 import Gallery from "components/Gallery";
 import { Transition } from "react-transition-group";
-import { exit } from "process";
 
 type ArtDetailsParams = {
   idx: string;
@@ -105,6 +104,11 @@ const ArtDetails: React.FC<artDetailsProps> = (props) => {
     setShow(true);
   }, [idx]);
 
+  //progress bar duration
+  const getProgressBarDuration = () => {
+    return ctx.slideShow ? "5s" : ".5s";
+  };
+
   return (
     <>
       <Transition
@@ -171,7 +175,7 @@ const ArtDetails: React.FC<artDetailsProps> = (props) => {
         }}
       </Transition>
 
-      <Footer className="footer" width={len}>
+      <Footer className="footer" width={len} duration={getProgressBarDuration}>
         <div className="footer-names">
           <h3>{ctx.data[id].name}</h3>
           <p>{ctx.data[id].artist.name}</p>

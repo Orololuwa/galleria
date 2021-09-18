@@ -7,6 +7,10 @@ interface CustomProps {
 
 interface FooterProps {
   readonly width?: number;
+  readonly duration: () => string | string;
+}
+
+interface NavIcoProps {
   readonly disabled?: boolean;
 }
 
@@ -32,7 +36,7 @@ export const fadeOut = keyframes`
   }
 `;
 
-export const NavIcon = styled(IonIcon)<FooterProps>`
+export const NavIcon = styled(IonIcon)<NavIcoProps>`
   width: 3rem !important;
   height: 3rem !important;
   color: ${(props) =>
@@ -336,21 +340,6 @@ export const Footer = styled.footer<FooterProps>`
     display: flex;
     align-items: center;
     gap: 2.5rem;
-
-    &--icon {
-      width: 3rem !important;
-      height: 3rem !important;
-      color: ${(props) =>
-        props.disabled
-          ? props.theme.colors.white[300]
-          : props.theme.colors.black[100]};
-      cursor: pointer;
-      transition: all 0.5s;
-
-      &:hover {
-        color: ${(props) => props.theme.colors.white[300]};
-      }
-    }
   }
 
   @media only screen and (max-width: 56.25em) {
@@ -370,7 +359,7 @@ export const Footer = styled.footer<FooterProps>`
     height: 1px;
     background-color: ${(props) => props.theme.colors.black[100]};
     width: ${(props) => props.width}%;
-    transition: all 1.2s;
+    transition: width ${(props) => props.duration};
   }
 `;
 
