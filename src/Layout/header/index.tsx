@@ -24,7 +24,10 @@ const Header = () => {
         src="/shared/logo.svg"
         alt="galleria's logo"
         className="logo"
-        onClick={() => history.push("/")}
+        onClick={() => {
+          ctx.stopSlideShow();
+          history.push("/");
+        }}
       />
       {!slideShow && (
         <span onClick={startSlideShowHandler}>START SLIDESHOW</span>
