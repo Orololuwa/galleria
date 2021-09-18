@@ -1,12 +1,38 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import IonIcon from "@reacticons/ionicons";
 
 interface CustomProps {
+  state?: string;
+}
+
+interface FooterProps {
   readonly width?: number;
   readonly disabled?: boolean;
 }
 
-export const NavIcon = styled(IonIcon)<CustomProps>`
+export const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+export const fadeOut = keyframes`
+  0% {
+    opacity: 1;    
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+`;
+
+export const NavIcon = styled(IonIcon)<FooterProps>`
   width: 3rem !important;
   height: 3rem !important;
   color: ${(props) =>
@@ -28,6 +54,13 @@ export const NavIcon = styled(IonIcon)<CustomProps>`
 const ArtDetailsProvider = styled.main<CustomProps>`
   padding: 7.5rem 2.5rem 0 2.5rem;
   position: relative;
+  animation: ${(props) =>
+      props.state === "entering"
+        ? fadeIn
+        : props.state === "exiting"
+        ? fadeOut
+        : null}
+    0.5s;
 
   .body {
     width: 100%;
@@ -256,83 +289,88 @@ const ArtDetailsProvider = styled.main<CustomProps>`
       gap: 7.5rem;
     }
   }
+`;
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 2.5rem 5rem;
-    background-color: ${(props) => props.theme.colors.white[100]};
-    border-top: 1px solid ${(props) => props.theme.colors.white[300]};
+export const Footer = styled.footer<FooterProps>`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 5rem;
+  background-color: ${(props) => props.theme.colors.white[100]};
+  border-top: 1px solid ${(props) => props.theme.colors.white[300]};
 
-    &-names {
-      p {
-        color: ${(props) => props.theme.colors.black[200]};
-      }
-
-      @media only screen and (max-width: 56.25em) {
-        h3 {
-          font-size: ${(props) => props.theme.typeScale.header4};
-        }
-
-        p {
-          font-size: ${(props) => props.theme.typeScale.bodyText4};
-        }
-      }
-
-      @media only screen and (max-width: 37.5em) {
-        h3 {
-          font-size: ${(props) => props.theme.typeScale.header5};
-        }
-
-        p {
-          font-size: ${(props) => props.theme.typeScale.bodyText5};
-        }
-      }
+  .footer-names {
+    p,
+    h3 {
+      animation: ${fadeIn} 1.2s;
     }
-
-    &-controls {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-
-      &--icon {
-        width: 3rem !important;
-        height: 3rem !important;
-        color: ${(props) =>
-          props.disabled
-            ? props.theme.colors.white[300]
-            : props.theme.colors.black[100]};
-        cursor: pointer;
-        transition: all 0.5s;
-
-        &:hover {
-          color: ${(props) => props.theme.colors.white[300]};
-        }
-      }
+    p {
+      color: ${(props) => props.theme.colors.black[200]};
     }
 
     @media only screen and (max-width: 56.25em) {
-      padding: 2.5rem;
+      h3 {
+        font-size: ${(props) => props.theme.typeScale.header4};
+      }
+
+      p {
+        font-size: ${(props) => props.theme.typeScale.bodyText4};
+      }
     }
 
     @media only screen and (max-width: 37.5em) {
-      padding: 1rem 2.5rem;
-    }
+      h3 {
+        font-size: ${(props) => props.theme.typeScale.header5};
+      }
 
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 1px;
-      background-color: ${(props) => props.theme.colors.black[100]};
-      width: ${(props) => props.width}%;
+      p {
+        font-size: ${(props) => props.theme.typeScale.bodyText5};
+      }
     }
+  }
+
+  .footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+
+    &--icon {
+      width: 3rem !important;
+      height: 3rem !important;
+      color: ${(props) =>
+        props.disabled
+          ? props.theme.colors.white[300]
+          : props.theme.colors.black[100]};
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        color: ${(props) => props.theme.colors.white[300]};
+      }
+    }
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    padding: 2.5rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    padding: 1rem 2.5rem;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    background-color: ${(props) => props.theme.colors.black[100]};
+    width: ${(props) => props.width}%;
+    transition: all 1.2s;
   }
 `;
 

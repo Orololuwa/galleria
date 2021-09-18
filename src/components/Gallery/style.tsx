@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-const GalleryProvider = styled.div`
+import { fadeIn, fadeOut } from "pages/ArtDetails/style";
+
+type GalleryProps = {
+  state: string;
+};
+
+const GalleryProvider = styled.div<GalleryProps>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,6 +16,14 @@ const GalleryProvider = styled.div`
   flex-direction: column;
   gap: 2.5rem;
   width: suto;
+
+  animation: ${(props) =>
+      props.state === "entering"
+        ? fadeIn
+        : props.state === "exiting"
+        ? fadeOut
+        : null}
+    0.5s;
 
   p {
     text-align: right;

@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { RouteDataItem } from "models/routeData";
-const ArtDetails = lazy(() => import("pages/ArtDetails"));
+import ArtDetails from "pages/ArtDetails";
 const HomePage = lazy(() => import("pages/Home"));
 
 const routes: RouteDataItem[] = [
